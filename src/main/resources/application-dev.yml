@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: BOOK-APP
+  datasource:
+    url: jdbc:mysql://localhost/book_db?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
+    username: root
+    password: Kkl@14994
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+server:
+  port: 9091
+image:
+  file:
+    path:
+      absolutePath: /home/test/cover-image/image/
+      relativePath: /image/cover-image/image/
+pdf:
+  file:
+    path:
+      absolutePath: /home/test/cover-pdf/pdf/
+      relativePath: /pdf/cover-pdf/pdf/
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 180000
+      refresh-token:
+        expiration: 420000
