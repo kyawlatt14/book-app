@@ -1,0 +1,362 @@
+{
+	"info": {
+		"_postman_id": "18a42fdb-ced3-4fe9-8ec7-376b25ae1db3",
+		"name": "Book-App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14188895",
+		"_collection_link": "https://orange-eclipse-500705.postman.co/workspace/sc~3430c519-6754-4f4c-92a3-a5fedb65f2c5/collection/14188895-18a42fdb-ced3-4fe9-8ec7-376b25ae1db3?action=share&source=collection_link&creator=14188895"
+	},
+	"item": [
+		{
+			"name": "User-Controller",
+			"item": [
+				{
+					"name": "add-book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "bookTitle",
+									"value": "test-12",
+									"type": "text"
+								},
+								{
+									"key": "summary",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "coverImage",
+									"description": "you must be insert file",
+									"type": "file",
+									"src": "/D:/abc.png"
+								},
+								{
+									"key": "genres",
+									"value": "B",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "author-4",
+									"type": "text"
+								},
+								{
+									"key": "pdf",
+									"description": "you must be insert file",
+									"type": "file",
+									"src": "/D:/a.pdf"
+								},
+								{
+									"key": "ratings",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:9091/api/user/add-book",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"user",
+								"add-book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:9091/api/user/delete-book?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"user",
+								"delete-book"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJra2wiLCJpYXQiOjE2OTQ2MzYzMzUsImV4cCI6MTY5NDYzNjUxNX0.atOLBWS93q9xf4GG9pY7WdkfA3r7A8Q31lPGn13TZyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9091/api/user/books?pageNo=0&pageSize=5",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"user",
+								"books"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "bookTitle",
+									"value": "test-AA",
+									"type": "text"
+								},
+								{
+									"key": "summary",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "coverImage",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								},
+								{
+									"key": "genres",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "author",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "pdf",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:9091/api/user/update-book",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"user",
+								"update-book"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Anyone-Controller",
+			"item": [
+				{
+					"name": "books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9091/api/anyone/books?pageNo=0&pageSize=10",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"anyone",
+								"books"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\": 1,\r\n    \"comment\":\"hi hi\",\r\n    \"email\":\"kkl@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9091/api/anyone/comment",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"anyone",
+								"comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book-detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9091/api/anyone/book-detail?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"anyone",
+								"book-detail"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth-Controller",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"kkl\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9091/api/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"kkl\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9091/api/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
