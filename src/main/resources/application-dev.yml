@@ -1,5 +1,5 @@
 spring:
-z  application:
+  application:
     name: BOOK-APP
   datasource:
     url: jdbc:mysql://localhost/book_db?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
