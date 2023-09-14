@@ -18,7 +18,6 @@ import static net.kkl.bookapp.entity.Permission.*;
 import static net.kkl.bookapp.entity.Role.*;
 import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.POST;
-import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity
@@ -42,26 +41,24 @@ public class SecurityConfiguration {
                         "/pdf/**"
                 )
                 .permitAll()
-//                .requestMatchers("api/user/**").hasRole(USER.name())
-//                .requestMatchers(GET, "/api/user/**").hasAuthority(USER_READ.name())
-//                .requestMatchers(POST, "/api/user/**").hasAuthority(USER_CREATE.name())
+                .requestMatchers("api/user/**").hasRole(USER.name())
+                .requestMatchers(GET, "/api/user/**").hasAuthority(USER_READ.name())
+                .requestMatchers(POST, "/api/user/**").hasAuthority(USER_CREATE.name())
                 .anyRequest()
                 .authenticated()
                 .and()
-                .oauth2Login(withDefaults())
-                .formLogin(withDefaults());
-//                .exceptionHandling()
-//                .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
-//                .and()
-//                .sessionManagement()
-//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//                .and()
-//                .authenticationProvider(authenticationProvider)
-//                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-//                .logout()
-//                .logoutUrl("/api/auth/logout")
-//                .addLogoutHandler(logoutHandler)
-//                .logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder.clearContext());
+                .exceptionHandling()
+                .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
+                .and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .authenticationProvider(authenticationProvider)
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+                .logout()
+                .logoutUrl("/api/auth/logout")
+                .addLogoutHandler(logoutHandler)
+                .logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder.clearContext());
         return http.build();
     }
 }

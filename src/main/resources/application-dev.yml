@@ -1,12 +1,5 @@
 spring:
-  security:
-    oauth2:
-      client:
-        registration:
-          github:
-            client-id: 3e03de9cd52df3ded840
-            client-secret: 5d262bd7496bffeb3bf46a0b1c1cb187f7b32aea
-  application:
+z  application:
     name: BOOK-APP
   datasource:
     url: jdbc:mysql://localhost/book_db?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
@@ -16,10 +9,10 @@ spring:
     hibernate:
       ddl-auto: update
     open-in-view: false
-#    show-sql: true
-#    properties:
-#      hibernate:
-#        format_sql: true
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
   servlet:
     multipart:
       max-file-size: 10MB
