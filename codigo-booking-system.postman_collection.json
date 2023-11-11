@@ -1,0 +1,449 @@
+{
+	"info": {
+		"_postman_id": "75a0d889-4c9c-40e2-bd50-3db85bbc5c2d",
+		"name": "codigo-booking-system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14188895",
+		"_collection_link": "https://orange-eclipse-500705.postman.co/workspace/sc~3430c519-6754-4f4c-92a3-a5fedb65f2c5/collection/14188895-75a0d889-4c9c-40e2-bd50-3db85bbc5c2d?action=share&source=collection_link&creator=14188895"
+	},
+	"item": [
+		{
+			"name": "auth-controller",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"kyat-2\",\r\n    \"address\":\"address-11\",\r\n    \"phone\":\"0987654321\",\r\n    \"email\":\"kyat1494TWO@gmail.com\",\r\n    \"password\":\"12345678\",\r\n    \"country\":\"Myanmar\",\r\n    \"role\":\"USER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/api/v1/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "authenticate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"kyawlatt14994@gmail.com\",\r\n    \"password\":\"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/api/v1/auth/authenticate",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh-token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJreWF3bGF0dDE0OTk0QGdtYWlsLmNvbSIsImlhdCI6MTY5OTY4MjIzNSwiZXhwIjoxNzAwMjg3MDM1fQ.EgHTs07PPcKrLeIoZujPyhSUtE37gYyxFgQ7k9G6g0s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/api/v1/auth/refresh-token",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user-controller",
+			"item": [
+				{
+					"name": "getProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJreWF3bGF0dDE0OTk0QGdtYWlsLmNvbSIsImlhdCI6MTY5OTcyMzIyMiwiZXhwIjoxNjk5ODA5NjIyfQ.LlJcjcOlyjsCk537FC2bTlwfJ0d_830y_XOYFmvGNFA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/api/v1/user?id=2",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"user"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change-password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJreWF3bGF0dDE0OTk0QGdtYWlsLmNvbSIsImlhdCI6MTY5OTcwODA1NSwiZXhwIjoxNjk5Nzk0NDU1fQ._8Pfg1-bX2W3JqMcxZ8A1YmeMv-TdQQEMWMFEkkyMXU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1,\r\n    \"password\":\"12345678\",\r\n    \"newPassword\":\"password\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/api/v1/user/change-password",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getBooking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJreWF3bGF0dDE0OTk0QGdtYWlsLmNvbSIsImlhdCI6MTY5OTcyMzIyMiwiZXhwIjoxNjk5ODA5NjIyfQ.LlJcjcOlyjsCk537FC2bTlwfJ0d_830y_XOYFmvGNFA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/api/v1/user/getBooking?id=2",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"getBooking"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPurchase",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJreWF3bGF0dDE0OTk0QGdtYWlsLmNvbSIsImlhdCI6MTY5OTcyMzIyMiwiZXhwIjoxNjk5ODA5NjIyfQ.LlJcjcOlyjsCk537FC2bTlwfJ0d_830y_XOYFmvGNFA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/api/v1/user/getPurchase?id=2",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"getPurchase"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "purchase-controller",
+			"item": [
+				{
+					"name": "createPurchase",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJreWF3bGF0dDE0OTk0QGdtYWlsLmNvbSIsImlhdCI6MTY5OTY5OTY5OSwiZXhwIjoxNjk5Nzg2MDk5fQ.R3rpXsgsp7jdr16E3SWojLNy39MvTKmiAGyFHYmyMLM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"class-2\",\r\n    \"credits\":20,\r\n    \"price\":100000.00,\r\n    \"country\":\"Singapore\",\r\n    \"expirationDate\":\"2023-11-12 12:55:30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/api/v1/purchase",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"purchase"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJreWF3bGF0dDE0OTk0QGdtYWlsLmNvbSIsImlhdCI6MTY5OTcwODA1NSwiZXhwIjoxNjk5Nzk0NDU1fQ._8Pfg1-bX2W3JqMcxZ8A1YmeMv-TdQQEMWMFEkkyMXU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/api/v1/purchase",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"purchase"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePurchase",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJreWF3bGF0dDE0OTk0QGdtYWlsLmNvbSIsImlhdCI6MTY5OTY5OTY5OSwiZXhwIjoxNjk5Nzg2MDk5fQ.R3rpXsgsp7jdr16E3SWojLNy39MvTKmiAGyFHYmyMLM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":4,\r\n    \"price\":140000.00\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/api/v1/purchase",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"purchase"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "booking-controller",
+			"item": [
+				{
+					"name": "createBooking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJreWF3bGF0dDE0OTk0QGdtYWlsLmNvbSIsImlhdCI6MTY5OTcyMzIyMiwiZXhwIjoxNjk5ODA5NjIyfQ.LlJcjcOlyjsCk537FC2bTlwfJ0d_830y_XOYFmvGNFA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userDTO\":{\r\n        \"id\":11,        \r\n        \"country\":\"MYANMAR\"\r\n    },\r\n    \"purchaseDTO\":{\r\n        \"id\":1,\r\n        \"bookingLimit\":5,\r\n        \"country\":\"MYANMAR\",\r\n        \"expirationDate\":\"1699770330\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/api/v1/booking",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJreWF3bGF0dDE0OTk0QGdtYWlsLmNvbSIsImlhdCI6MTY5OTcyMzIyMiwiZXhwIjoxNjk5ODA5NjIyfQ.LlJcjcOlyjsCk537FC2bTlwfJ0d_830y_XOYFmvGNFA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/api/v1/booking",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
